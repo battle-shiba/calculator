@@ -20,6 +20,7 @@ let digitBtns = [];
 
 let operator = 0;
 let ans = +display.textContent;
+
 //----------------------------------------------------------------//
 btns.forEach((btn) => {
     if ( !isNaN(btn.textContent) ) {
@@ -31,41 +32,77 @@ btns.forEach((btn) => {
 
 digitBtns.forEach((btn) => {
     btn.addEventListener('click', function() {
-        
-        display.textContent = btn.textContent;
+
         
 
-        if (operator) {
-            ans = operate(operator,ans,btn.textContent)
+        if (display.textContent == ans) {
+            display.textContent = btn.textContent;
+            
         }
-
         else {
-            ans = +display.textContent;
+            display.textContent = display.textContent+btn.textContent;
         }
+        
+        
 
+        
     });
 });
 
 addBtn.addEventListener('click', function() {
+    if (operator) {
+        ans = operate(operator,ans,display.textContent);
+        display.textContent = ans;
+        
+    }
+    else {
+        ans = display.textContent;
+    }
     operator = add;
 });
 
 mulBtn.addEventListener('click', function() {
+    if (operator) {
+        ans = operate(operator,ans,display.textContent);
+        display.textContent = ans;
+        
+    }
+    else {
+        ans = display.textContent;
+    }
     operator = multiply;
 });
 
 subBtn.addEventListener('click', function() {
+    if (operator) {
+        ans = operate(operator,ans,display.textContent);
+        display.textContent = ans;
+        
+    }
+    else {
+        ans = display.textContent;
+    }
     operator = subtract;
 });
 
 divBtn.addEventListener('click', function() {
+    if (operator) {
+        ans = operate(operator,ans,display.textContent);
+        display.textContent = ans;
+        
+    }
+    else {
+        ans = display.textContent;
+    }
     operator = divide;
 });
 
 clearBtn.addEventListener('click', clear);
 
 equalsBtn.addEventListener('click', function() {
+    ans = operate(operator,ans,display.textContent)
     display.textContent = ans;
+    operator = 0;
 })
 
 
